@@ -1,0 +1,34 @@
+---
+title: docker
+date: 2017-12-05 00:44:46
+tags:
+---
+```
+#查看当前所下载的镜像
+docker images
+
+#查看当前所运行的容器，-a参数（包括已关机的容器）
+docker ps -a
+
+#开机容器
+docker start 容器名
+
+#关机容器
+docker stop 容器名
+
+#重命名容器
+docker rename 容器id 新容器名
+
+#删除容器
+docker rm 容器名
+
+#删除全部容器
+docker rm $(docker ps -a)
+
+#进入容器
+docker exec -it 容器名 /bin/bash
+
+#退出容器
+exit
+```
+
