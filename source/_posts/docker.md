@@ -28,6 +28,12 @@ docker rm $(docker ps -a)
 #进入容器
 docker exec -it 容器名 /bin/bash
 
+#复制文件到容器
+docker cp 本地文件路径 容器名:容器文件路径
+
+#复制容器文件到本地
+docker cp 容器名:容器文件路径 本地文件路径
+
 #退出容器
 exit
 ```
