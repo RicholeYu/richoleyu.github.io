@@ -1,7 +1,7 @@
 ---
 title: docker
 date: 2017-12-05 00:44:46
-tags:
+tags: Linux
 ---
 ```
 #查看当前所下载的镜像
