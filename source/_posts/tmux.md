@@ -1,7 +1,7 @@
 ---
 title: tmux
 date: 2017-12-04 23:17:17
-tags:
+tags: Linux
 ---
 ```
 tmux (~代表ctrl b)

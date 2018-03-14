@@ -1,7 +1,7 @@
 ---
 title: tensorflow
 date: 2017-12-04 23:49:03
-tags:
+tags: Linux
 ---
 
 #docker 镜像安装 tensorflow

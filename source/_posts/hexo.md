@@ -1,7 +1,7 @@
 ---
 title: hexo
 date: 2017-12-05 00:14:37
-tags:
+tags: Linux
 ---
 
 ```

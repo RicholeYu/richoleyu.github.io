@@ -1,7 +1,7 @@
 ---
 title: vim
 date: 2017-12-11 00:40:31
-tags:
+tags: Linux
 ---
 
 ````
