@@ -26,7 +26,7 @@ docker rm 容器名/ID
 docker rm $(docker ps -a)
 
 #进入容器
-docker exec -it 容器名/ID /bin/bash
+docker exec -it 容器名/ID bash
 
 #复制文件到容器
 docker cp 本地文件路径 容器名:容器文件路径
@@ -34,6 +34,12 @@ docker cp 本地文件路径 容器名:容器文件路径
 #复制容器文件到本地
 docker cp 容器名:容器文件路径 本地文件路径
 
+
+#docker 新建 mongodb 
+docker run -d -p 27017:27017 mongo --auth
+
+#docker 新建 redis
+docker run -d -p 
 #退出容器
 exit
 ```
