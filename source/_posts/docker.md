@@ -7,6 +7,9 @@ tags: Linux
 #查看当前所下载的镜像
 docker images
 
+#下载镜像
+docker pull mongo
+
 #查看当前所运行的容器，-a参数（包括已关机的容器）
 docker ps -a
 
@@ -39,7 +42,8 @@ docker cp 容器名:容器文件路径 本地文件路径
 docker run -d -p 27017:27017 mongo --auth
 
 #docker 新建 redis
-docker run -d -p 
+docker run -d -p 6379:6379 redis --requirepass "ddainn1314"
+
 #退出容器
 exit
 ```
