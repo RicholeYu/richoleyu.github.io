@@ -15,6 +15,15 @@ pacman -S
 # 卸载命令
 pacman -Rs 
 
-#node、git、npm等命令不要用pacman安装，修改.bashrc 新增环境变量使用windows同一套命令
+# node、git、npm等命令不要用pacman安装，修改.bashrc 新增环境变量使用windows同一套命令
 export PATH=/c/git:$PATH
+
+# VSCODE 集成MSYS2 终端 设置 settings.json
+"terminal.integrated.shell.windows": "D:\\program\\msys64\\usr\\bin\\bash.exe",
+"terminal.integrated.shellArgs.windows": [
+    "--login"
+],
+"terminal.integrated.env.windows": {
+    "CHERE_INVOKING": "1"
+},
 ```
