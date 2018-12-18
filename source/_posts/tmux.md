@@ -11,6 +11,7 @@ tmux (~代表ctrl b)
     进入会话 tmux attach -t 序号
     查看历史输出 ~ [ (通过上下，上一页下一页移动，q退出该模式)
     全屏当前panell ~ z (再次输入，则退出全屏)
+    后台挂起tmux ~ d
     panel
 
         新建纵向分屏 ~ %
