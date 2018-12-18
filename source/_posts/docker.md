@@ -44,6 +44,9 @@ docker run -d -p 27017:27017 mongo --auth
 #docker 新建 redis
 docker run -d -p 6379:6379 redis --requirepass "ddainn1314"
 
+#开机自动启动容器
+docker update --restart=always 容器名/ID
+
 #退出容器
 exit
 ```
