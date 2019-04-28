@@ -101,6 +101,7 @@ module.exports = {
         "linebreak-style": ["error", "windows"],
 		"eol-last": ["error", "windows"],
         "object-property-newline": ["error", {}],
+        "space-infix-ops": 2,
         "vue/html-indent": ["error", 4, {
             "attribute": 1,
             "baseIndent": 1,
