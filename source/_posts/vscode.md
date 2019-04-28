@@ -95,11 +95,7 @@ module.exports = {
         "semi": ["error", "never"],
         "no-multiple-empty-lines": ["error", {"max": 1}],
         "generator-star-spacing": ["error", { "before": true, "after": true }],
-        "object-curly-newline": ["error", {
-            "ObjectPattern": {
-                "multiline": true
-            }
-        }],
+        "object-curly-newline": ["error", { "consistent": true, "minProperties": 2 }],
         "object-curly-spacing": ["error", "always"],
         "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
         "linebreak-style": ["error", "windows"],
