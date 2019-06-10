@@ -37,12 +37,28 @@ docker cp 本地文件路径 容器名:容器文件路径
 #复制容器文件到本地
 docker cp 容器名:容器文件路径 本地文件路径
 
-
-#docker 新建 mongodb 
+# docker 新建 mongodb 
 docker run -d -p 27017:27017 mongo --auth
 
+# 进入容器，创建root账号
+use admin
+db.createUser({
+    user: 'root',
+    pwd: 'root',
+    roles: [{
+        role: 'root',
+        db: 'admin'
+    }]
+})
+
+# 验证账号
+db.auth('root', 'root')
+
+# 通过admin连接数据库
+mongodb://root:root@127.0.0.1:27017/?authSource=admin
+
 #docker 新建 redis
-docker run -d -p 6379:6379 redis --requirepass "ddainn1314"
+docker run -d -p 6379:6379 redis --requirepass "root"
 
 #开机自动启动容器
 docker update --restart=always 容器名/ID
