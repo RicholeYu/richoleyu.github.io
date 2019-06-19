@@ -70,13 +70,16 @@ docker volume ls
 docker volume create --name mongodata
 
 # docker 批量删除volume
-docker volume rm $(docker volume ls -qf dangling=true)
+docker volume rm prune
 
 # 查看docker volune 路径
 docker volume inspect volumeName
 
 # 退出容器
 exit
+
+# windows 创建目录软连接
+mklink /j web E:\work\frontEnd\project\madsportweb\dist
 
 # docker-compose.yml
 version: '2'
@@ -88,17 +91,15 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - /e/work/frontEnd/project/madsportweb/dist:/usr/share/nginx/html
-            - /e/data/nginx/conf.d:/etc/nginx/conf.d
-            - /e/data/nginx_log:/var/log/nginx
+            - ./nginx/web:/usr/share/nginx/html
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/log:/var/log/nginx
     reids:
         container_name: redis
         image: redis
-        command: redis-server /usr/local/etc/redis/redis.conf --requirepass yudafu2019
+        command: redis-server --requirepass yudafu2019
         ports:
             - "6379:6379"
-        volumes:
-            - /e/data/redis/redis.conf:/usr/local/etc/redis/redis.conf
     mongo:
         container_name: mongo
         image: mongo
@@ -107,11 +108,19 @@ services:
         command: mongod --auth
         volumes:
             - mongodata:/data/db
+    gcc:
+        container_name: gcc
+        image: gcc
+        build: ./gcc
+        volumes:
+            - ./gcc/work:/home/work
+        command: /home/start
 volumes:
     mongodata:
 
-# 开始创建docker服务
-docker-compose up -d
+
+# 开始创建docker服务 并且 build dockerfile
+docker-compose up -d --build
 
 # 关闭docker服务
 docker-compose down
