@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Bezier | Richole&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="贝塞尔曲线点阵算法 可以用在SVG、CANVAS需要画曲线动画的时候 CANVAS也可使用 quadraticCurveTo()、bezierCurveTo() 创建贝塞尔曲线 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960">
+<meta name="keywords" content="动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bezier">
+<meta property="og:url" content="http://monkit.com/2018/03/14/Bezier/index.html">
+<meta property="og:site_name" content="Richole&#39;s blog">
+<meta property="og:description" content="贝塞尔曲线点阵算法 可以用在SVG、CANVAS需要画曲线动画的时候 CANVAS也可使用 quadraticCurveTo()、bezierCurveTo() 创建贝塞尔曲线 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-30T02:29:21.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bezier">
+<meta name="twitter:description" content="贝塞尔曲线点阵算法 可以用在SVG、CANVAS需要画曲线动画的时候 CANVAS也可使用 quadraticCurveTo()、bezierCurveTo() 创建贝塞尔曲线 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960">
+  
+    <link rel="alternate" href="/atom.xml" title="Richole&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Richole&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://monkit.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Bezier" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/14/Bezier/" class="article-date">
+  <time datetime="2018-03-14T06:22:04.000Z" itemprop="datePublished">2018-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Bezier
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>贝塞尔曲线点阵算法 可以用在SVG、CANVAS需要画曲线动画的时候</p>
+<p>CANVAS也可使用 quadraticCurveTo()、bezierCurveTo() 创建贝塞尔曲线</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point2D</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.x = x || <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">this</span>.y = y || <span class="number">0.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 贝塞尔三阶曲线</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PointOnCubicBezier</span> (<span class="params">cp, t</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ax, bx, cx,</span><br><span class="line">        ay, by, cy,</span><br><span class="line">        tSquared, tCubed,</span><br><span class="line">        x, y;</span><br><span class="line"></span><br><span class="line">    cx = <span class="number">3.0</span> * (cp[<span class="number">1</span>].x - cp[<span class="number">0</span>].x);</span><br><span class="line">    bx = <span class="number">3.0</span> * (cp[<span class="number">2</span>].x - cp[<span class="number">1</span>].x) - cx;</span><br><span class="line">    ax = cp[<span class="number">3</span>].x - cp[<span class="number">0</span>].x - cx - bx;</span><br><span class="line">    cy = <span class="number">3.0</span> * (cp[<span class="number">1</span>].y - cp[<span class="number">0</span>].y);</span><br><span class="line">    by = <span class="number">3.0</span> * (cp[<span class="number">2</span>].y - cp[<span class="number">1</span>].y) - cy;</span><br><span class="line">    ay = cp[<span class="number">3</span>].y - cp[<span class="number">0</span>].y - cy - by;</span><br><span class="line"></span><br><span class="line">    tSquared = t * t;</span><br><span class="line">    tCubed = tSquared * t;</span><br><span class="line">    x = (ax * tCubed) + (bx * tSquared) + (cx * t) + cp[<span class="number">0</span>].x;</span><br><span class="line">    y = (ay * tCubed) + (by * tSquared) + (cy * t) + cp[<span class="number">0</span>].y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Point2D(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 贝塞尔二阶曲线</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PointOnQuadraticBezier</span> (<span class="params">cp, t</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = (<span class="number">1</span> - t) * (<span class="number">1</span> - t) * cp[<span class="number">0</span>].x + <span class="number">2</span> * t * (<span class="number">1</span> - t) * cp[<span class="number">1</span>].x + t * t * cp[<span class="number">2</span>].x,</span><br><span class="line">        y = (<span class="number">1</span> - t) * (<span class="number">1</span> - t) * cp[<span class="number">0</span>].y + <span class="number">2</span> * t * (<span class="number">1</span> - t) * cp[<span class="number">1</span>].y + t * t * cp[<span class="number">2</span>].y;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Point2D(x, y);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取贝塞尔三阶曲线点阵</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ComputeCubicBezier</span>(<span class="params">cp, numberOfPoints, curve</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> dt = <span class="number">1.0</span> / (numberOfPoints - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numberOfPoints; i++) &#123;</span><br><span class="line">        curve[i] = PointOnCubicBezier(cp, i * dt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取贝塞尔二阶曲线点阵</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ComputeQuadraticBezier</span> (<span class="params">cp, numberOfPoints, curve</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> dt = <span class="number">1.0</span> / ( numberOfPoints - <span class="number">1</span> );</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numberOfPoints; i++) &#123;</span><br><span class="line">        curve[i] = PointOnQuadraticBezier( cp, i*dt );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> quadraticArr = [</span><br><span class="line">        <span class="keyword">new</span> Point2D(<span class="number">20</span>, <span class="number">0</span>), <span class="keyword">new</span> Point2D(<span class="number">40</span>, <span class="number">50</span>), <span class="keyword">new</span> Point2D(<span class="number">0</span>, <span class="number">100</span>)</span><br><span class="line">    ],</span><br><span class="line">    cubicArr = [</span><br><span class="line">        <span class="keyword">new</span> Point2D(<span class="number">20</span>, <span class="number">0</span>), <span class="keyword">new</span> Point2D(<span class="number">40</span>, <span class="number">50</span>), <span class="keyword">new</span> Point2D(<span class="number">0</span>, <span class="number">100</span>), <span class="keyword">new</span> Point2D(<span class="number">20</span>, <span class="number">150</span>)</span><br><span class="line">    ],</span><br><span class="line">    POINT_NUMBER = <span class="number">100</span>,</span><br><span class="line">    quadratic = [],</span><br><span class="line">    curve = [];</span><br><span class="line"></span><br><span class="line">ComputeQuadraticBezier(quadraticArr, POINT_NUMBER, quadratic);</span><br><span class="line">ComputeCubicBezier(cubicArr, POINT_NUMBER, curve);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(quadratic, curve);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2018/03/14/Bezier/" data-id="ck04wpwix0000bp3ll563r238" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/14/requestAnimationFrame/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          requestAnimationFrame
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/11/vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vim 配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/环境配置/" style="font-size: 15px;">环境配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/04/command/">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/cors/">cors</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/ssr/">ssr</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/mysql/">mysql</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/pm2/">pm2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Richole<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

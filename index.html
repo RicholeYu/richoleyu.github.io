@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Richole&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Richole&#39;s blog">
+<meta property="og:url" content="http://monkit.com/index.html">
+<meta property="og:site_name" content="Richole&#39;s blog">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Richole&#39;s blog">
+  
+    <link rel="alternate" href="/atom.xml" title="Richole&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Richole&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://monkit.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/04/command/" class="article-date">
+  <time datetime="2019-09-04T06:38:38.000Z" itemprop="datePublished">2019-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/04/command/">常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># 创建 ssh key</span><br><span class="line">ssh-keygen -t rsa -C “dfyu@xtremeprog.com”</span><br><span class="line"></span><br><span class="line"># nvm 安装</span><br><span class="line">git clone https://github.com/creationix/nvm.git /usr/local/bin/nvm</span><br><span class="line"></span><br><span class="line"># npm 淘宝源</span><br><span class="line">npm config set registry “http://registry.npmjs.org/“</span><br><span class="line"></span><br><span class="line"># http-server 创建https 服务</span><br><span class="line">openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</span><br><span class="line"></span><br><span class="line"># http-server (-g gzip, -S https, -C cert, -o 打开浏览器)</span><br><span class="line">http-server -S -C cert.pem -o -g</span><br><span class="line"></span><br><span class="line"># 替换文件某字符串</span><br><span class="line">find -name &apos;要查找的文件名&apos; | xargs perl -pi -e &apos;s|被替换的字符串|替换后的字符串|g&apos;</span><br><span class="line"></span><br><span class="line"># git tag</span><br><span class="line">git tag -a tag_name -m &quot;tag description&quot;</span><br><span class="line">git push --tag</span><br><span class="line"></span><br><span class="line"># git 显示中文</span><br><span class="line">git config --global core.quotepath false</span><br><span class="line"></span><br><span class="line"># Item2 lszrz</span><br><span class="line">服务端 安装 apt-get install lszrz</span><br><span class="line">客户端 安装 Item2 expect</span><br><span class="line"># gos 命令</span><br><span class="line">export LC_CTYPE=en_US</span><br><span class="line">expect /Users/yudafu/500/tool/$1</span><br><span class="line"># expect 文件</span><br><span class="line">spawn ssh root@XX.XXX -p 50022</span><br><span class="line">expect &quot;*password*&quot;</span><br><span class="line">send &quot;password\n&quot;</span><br><span class="line">expect &quot;*root*&quot;</span><br><span class="line">send &quot;ssh root@XXXXX -p 52222\n&quot;</span><br><span class="line">expect &quot;*password*&quot;</span><br><span class="line">send &quot;cd www/web\n&quot;</span><br><span class="line">interact</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/09/04/command/" data-id="ck04wpwj40003bp3l8xv2otnv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cors" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/cors/" class="article-date">
+  <time datetime="2019-08-30T02:35:34.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/cors/">cors</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/cors/" data-id="ck04wpwj50004bp3loslc71ax" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ssr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/ssr/" class="article-date">
+  <time datetime="2019-08-30T02:35:13.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/ssr/">ssr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/ssr/" data-id="ck04wpwjr000sbp3lanh8ss0o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/mysql/" class="article-date">
+  <time datetime="2019-08-30T02:34:55.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/mysql/">mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/mysql/" data-id="ck04wpwjg000hbp3l7sw78gsa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pm2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/pm2/" class="article-date">
+  <time datetime="2019-08-30T02:34:42.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/pm2/">pm2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/pm2/" data-id="ck04wpwjp000pbp3ldbnsl5m7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-egg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/egg/" class="article-date">
+  <time datetime="2019-08-30T02:34:09.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/egg/">egg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/egg/" data-id="ck04wpwj60005bp3ldge6j19t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-koa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/koa/" class="article-date">
+  <time datetime="2019-08-30T02:33:56.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/koa/">koa</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/koa/" data-id="ck04wpwje000fbp3lyhzwcom2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-performance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/performance/" class="article-date">
+  <time datetime="2019-08-30T02:33:21.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/performance/">前端性能优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h1><ul>
+<li><a href="#根据文件内标题生成目录">1.javascript性能优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">重复渲染</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">大数据计算</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">计算前置、数据缓存</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">算法优化</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">内存泄漏</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">代码优化</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">2.构建优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">单页OR多页应用</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">懒加载及加载前置</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">缩略图</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">服务端渲染</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">预渲染</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">3.网络优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">HTTP2</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">缓存</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">负载均衡</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">DNS优化</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">4.静态资源优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">资源压缩</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">请求合并</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">缩略图</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">5.交付优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">加载关键CSS</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">Loading</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">用户定制-根据型号分辨率 定制内容</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">预加载</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">6.环境优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">M站</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">搭建多站点</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">7.Chrome devtools真的会用吗</a></li>
+<li><a href="#根据文件内标题生成目录">8.树立优化的意识</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">培养同事的优化意识</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">比竞争对手要快</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">收集数据</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">优化用户体验</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/performance/" data-id="ck04wpwjm000nbp3lh35huh26" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vscode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/04/vscode/" class="article-date">
+  <time datetime="2019-04-04T09:26:16.000Z" itemprop="datePublished">2019-04-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/04/vscode/">VS Code 配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>错误：无法提交处理 (无效或已损坏的软件包 (PGP 签名))<br>修改/etc/pacman.conf<br>设置SigLevel = Never</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># msys2 常用环境配置</span><br><span class="line"></span><br><span class="line"># 安装命令</span><br><span class="line">pacman -S </span><br><span class="line"># 卸载命令</span><br><span class="line">pacman -Rs </span><br><span class="line"></span><br><span class="line"># node、git、npm等命令不要用pacman安装，修改.bashrc 新增环境变量使用windows同一套命令</span><br><span class="line">export PATH=/c/git:$PATH</span><br><span class="line"></span><br><span class="line"># VSCODE 集成MSYS2 终端 设置 settings.json</span><br><span class="line">&quot;terminal.integrated.shell.windows&quot;: &quot;D:\\program\\msys64\\usr\\bin\\bash.exe&quot;,</span><br><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;: [</span><br><span class="line">    &quot;--login&quot;</span><br><span class="line">],</span><br><span class="line">&quot;terminal.integrated.env.windows&quot;: &#123;</span><br><span class="line">    &quot;CHERE_INVOKING&quot;: &quot;1&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>.editorconfig (需要安装EditorConfig vscode插件)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root = true</span><br><span class="line">[*]</span><br><span class="line">charset = utf-8</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 4</span><br><span class="line">end_of_line = crlf</span><br><span class="line">insert_final_newline = true</span><br><span class="line">trim_trailing_whitespace = true</span><br></pre></td></tr></table></figure></p>
+<p>.eslintrc.js (Eslintrc vue 默认配置)<br><a href="https://cloud.tencent.com/developer/chapter/12618" target="_blank" rel="noopener">Eslint 文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    root: true,</span><br><span class="line">    // parser: &quot;babel-eslint&quot;,</span><br><span class="line">    &quot;parserOptions&quot;: &#123;</span><br><span class="line">        &quot;parser&quot;: &quot;babel-eslint&quot;,</span><br><span class="line">        &quot;ecmaVersion&quot;: 2017,</span><br><span class="line">        &quot;sourceType&quot;: &quot;module&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    env: &#123;</span><br><span class="line">        browser: true,</span><br><span class="line">    &#125;,</span><br><span class="line">    // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style</span><br><span class="line">    extends: [&quot;standard&quot;, &quot;eslint:recommended&quot;, &quot;plugin:vue/essential&quot;],</span><br><span class="line">    // required to lint *.vue files</span><br><span class="line">    plugins: [</span><br><span class="line">        &quot;vue&quot;</span><br><span class="line">    ],</span><br><span class="line">    // add your custom rules here</span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        //&quot;off&quot;或0 -关闭规则</span><br><span class="line">        //&quot;warn&quot; 或1 - 开启规则, 使用警告 程序不会退出</span><br><span class="line">        //&quot;error&quot;或2 - 开启规则, 使用错误 程序退出</span><br><span class="line">        &quot;indent&quot;: [&quot;error&quot;, 4],</span><br><span class="line">        //分号</span><br><span class="line">        &quot;eqeqeq&quot;: &quot;off&quot;,</span><br><span class="line">        &quot;no-useless-escape&quot;: &quot;off&quot;,</span><br><span class="line">        &quot;brace-style&quot;: 0,//大括号风格</span><br><span class="line">        &quot;curly&quot;: [&quot;error&quot;, &quot;all&quot;], //[2, &quot;all&quot;],//必须使用 if()&#123;&#125; 中的&#123;&#125;</span><br><span class="line">        &quot;no-new&quot;: &quot;off&quot;,</span><br><span class="line">        &quot;no-return-assign&quot;: &quot;warn&quot;,//return 语句中不能有赋值表达式</span><br><span class="line"></span><br><span class="line">        &quot;handle-callback-err&quot;: 0,</span><br><span class="line">        &quot;padded-blocks&quot;: 0,</span><br><span class="line">        &quot;no-duplicate-imports&quot;: 0,</span><br><span class="line">        &quot;operator-linebreak&quot;: 0,</span><br><span class="line">        &quot;no-extend-native&quot;: 0,</span><br><span class="line">        &quot;no-sequences&quot;: 0,</span><br><span class="line"></span><br><span class="line">        &quot;no-debugger&quot;: 0,</span><br><span class="line">        &quot;no-eval&quot;: 0,</span><br><span class="line">        &quot;comma-dangle&quot;: [&quot;error&quot;, &quot;never&quot;],</span><br><span class="line">        &quot;arrow-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: true, &quot;after&quot;: true &#125;],</span><br><span class="line">        &quot;no-undef&quot;: &quot;error&quot;,</span><br><span class="line">        &quot;no-console&quot;: 0,</span><br><span class="line">        &quot;space-before-function-paren&quot;: [&quot;error&quot;, &quot;always&quot;],</span><br><span class="line">        &quot;keyword-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: true, &quot;after&quot;: true &#125;],</span><br><span class="line">        &quot;space-before-blocks&quot;: [&quot;error&quot;, &quot;always&quot;],</span><br><span class="line">        &quot;spaced-comment&quot;: [&quot;error&quot;, &quot;always&quot;, &#123;&quot;exceptions&quot;: [&apos;-&apos;, &apos;+&apos;]&#125;],</span><br><span class="line">        &quot;quotes&quot;: [&quot;error&quot;, &quot;double&quot;],</span><br><span class="line">        &quot;semi&quot;: [&quot;error&quot;, &quot;never&quot;],</span><br><span class="line">        &quot;no-multiple-empty-lines&quot;: [&quot;error&quot;, &#123;&quot;max&quot;: 1&#125;],</span><br><span class="line">        &quot;generator-star-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: true, &quot;after&quot;: true &#125;],</span><br><span class="line">        &quot;object-curly-newline&quot;: [&quot;error&quot;, &#123; &quot;consistent&quot;: true, &quot;minProperties&quot;: 2 &#125;],</span><br><span class="line">        &quot;object-curly-spacing&quot;: [&quot;error&quot;, &quot;always&quot;],</span><br><span class="line">        &quot;key-spacing&quot;: [&quot;error&quot;, &#123; &quot;beforeColon&quot;: false, &quot;afterColon&quot;: true &#125;],</span><br><span class="line">        &quot;linebreak-style&quot;: [&quot;error&quot;, &quot;windows&quot;],</span><br><span class="line">		&quot;eol-last&quot;: [&quot;error&quot;, &quot;windows&quot;],</span><br><span class="line">        &quot;object-property-newline&quot;: [&quot;error&quot;, &#123;&#125;],</span><br><span class="line">        &quot;space-infix-ops&quot;: 2,</span><br><span class="line">        &quot;vue/html-indent&quot;: [&quot;error&quot;, 4, &#123;</span><br><span class="line">            &quot;attribute&quot;: 1,</span><br><span class="line">            &quot;baseIndent&quot;: 1,</span><br><span class="line">            &quot;closeBracket&quot;: 0,</span><br><span class="line">            &quot;alignAttributesVertically&quot;: true,</span><br><span class="line">            &quot;ignores&quot;: []</span><br><span class="line">        &#125;],</span><br><span class="line">        // &quot;vue/html-closing-bracket-newline&quot;: [&quot;error&quot;, &#123;</span><br><span class="line">        //     &quot;multiline&quot;: &quot;always&quot;</span><br><span class="line">        // &#125;],</span><br><span class="line">        // &quot;vue/max-attributes-per-line&quot;: [&quot;error&quot;, &#123;</span><br><span class="line">        //     &quot;singleline&quot;: 100,</span><br><span class="line">        //     &quot;multiline&quot;: &#123;</span><br><span class="line">        //       &quot;max&quot;: 1,</span><br><span class="line">        //       &quot;allowFirstLine&quot;: true</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    globals: &#123;</span><br><span class="line">        &quot;_&quot;: true,</span><br><span class="line">        &quot;arguments&quot;: true,</span><br><span class="line">        &quot;ActiveXObject&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/04/04/vscode/" data-id="ck04wpwjs000ubp3l3b0adjvp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vpn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/vpn/" class="article-date">
+  <time datetime="2019-03-21T04:02:26.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/21/vpn/">VPN 搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Strongswan"><a href="#Strongswan" class="headerlink" title="Strongswan"></a>Strongswan</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">apt-get install strongswan</span><br><span class="line">apt-get install strongswan-plugin-xauth-noauth</span><br><span class="line"></span><br><span class="line">iptables -t nat -A POSTROUTING -s 10.146.0.0/24 -o ens4 -j MASQUERADE</span><br><span class="line">iptables -L -t nat</span><br><span class="line"></span><br><span class="line">echo 1 &gt;&gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line">vim /etc/sysctl.conf</span><br><span class="line">net.ipv4.ip_forward=1</span><br><span class="line">net.ipv6.conf.all.forwarding=1</span><br><span class="line">net.ipv4.conf.all.accept_redirects = 0</span><br><span class="line">net.ipv4.conf.all.send_redirects = 0</span><br><span class="line">sysctl -p</span><br><span class="line">ifconfig ens4 mtu 1500 up</span><br><span class="line"></span><br><span class="line">vim /etc/ipsec.secrets</span><br><span class="line">: PSK &quot;123&quot;</span><br><span class="line">yu : XAUTH &quot;yu&quot;</span><br><span class="line"></span><br><span class="line">vim /etc/ipsec.conf</span><br><span class="line">config setup</span><br><span class="line">    cachecrls=yes</span><br><span class="line">    uniqueids=never #一个账号多台设备登陆</span><br><span class="line">conn ios_android</span><br><span class="line">    keyexchange=ikev1</span><br><span class="line">    left=%defaultroute</span><br><span class="line">    fragmentation=yes</span><br><span class="line">    leftauth=psk</span><br><span class="line">    leftsubnet=0.0.0.0/0</span><br><span class="line">    right=%any</span><br><span class="line">    rightauth=psk</span><br><span class="line">    rightauth2=xauth</span><br><span class="line">    rightdns=8.8.8.8,8.8.4.4</span><br><span class="line">    rightsourceip=10.146.0.4/20</span><br><span class="line">    auto=add</span><br><span class="line"></span><br><span class="line"># 防火墙开放500 4500 端口</span><br></pre></td></tr></table></figure>
+<h1 id="Shadwosock"><a href="#Shadwosock" class="headerlink" title="Shadwosock"></a>Shadwosock</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-gevent python-pip</span><br><span class="line">sudo pip install shadowsocks</span><br><span class="line">touch shadow.json</span><br><span class="line">&#123;</span><br><span class="line">&quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">&quot;server_port&quot;:8388,</span><br><span class="line">&quot;password&quot;:&quot;密码与客户端配置一样&quot;,</span><br><span class="line">&quot;timeout&quot;:600,</span><br><span class="line">&quot;method&quot;:&quot;aes-128-cfb&quot;</span><br><span class="line">&#125;</span><br><span class="line">ssserver -c shadow.json -d start</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/03/21/vpn/" data-id="ck04wpwjt000wbp3lmwgyvfug" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/环境配置/" style="font-size: 15px;">环境配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/04/command/">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/cors/">cors</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/ssr/">ssr</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/mysql/">mysql</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/pm2/">pm2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Richole<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

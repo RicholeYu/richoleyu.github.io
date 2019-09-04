@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>常用命令 | Richole&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940# 创建 ssh keyssh-keygen -t rsa -C “dfyu@xtremeprog.com”# nvm 安装git clone https://github.com/creationix/nvm.git /usr/local/bin/nvm#">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用命令">
+<meta property="og:url" content="http://monkit.com/2019/09/04/command/index.html">
+<meta property="og:site_name" content="Richole&#39;s blog">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940# 创建 ssh keyssh-keygen -t rsa -C “dfyu@xtremeprog.com”# nvm 安装git clone https://github.com/creationix/nvm.git /usr/local/bin/nvm#">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-04T06:53:22.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用命令">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940# 创建 ssh keyssh-keygen -t rsa -C “dfyu@xtremeprog.com”# nvm 安装git clone https://github.com/creationix/nvm.git /usr/local/bin/nvm#">
+  
+    <link rel="alternate" href="/atom.xml" title="Richole&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Richole&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://monkit.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/04/command/" class="article-date">
+  <time datetime="2019-09-04T06:38:38.000Z" itemprop="datePublished">2019-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># 创建 ssh key</span><br><span class="line">ssh-keygen -t rsa -C “dfyu@xtremeprog.com”</span><br><span class="line"></span><br><span class="line"># nvm 安装</span><br><span class="line">git clone https://github.com/creationix/nvm.git /usr/local/bin/nvm</span><br><span class="line"></span><br><span class="line"># npm 淘宝源</span><br><span class="line">npm config set registry “http://registry.npmjs.org/“</span><br><span class="line"></span><br><span class="line"># http-server 创建https 服务</span><br><span class="line">openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</span><br><span class="line"></span><br><span class="line"># http-server (-g gzip, -S https, -C cert, -o 打开浏览器)</span><br><span class="line">http-server -S -C cert.pem -o -g</span><br><span class="line"></span><br><span class="line"># 替换文件某字符串</span><br><span class="line">find -name &apos;要查找的文件名&apos; | xargs perl -pi -e &apos;s|被替换的字符串|替换后的字符串|g&apos;</span><br><span class="line"></span><br><span class="line"># git tag</span><br><span class="line">git tag -a tag_name -m &quot;tag description&quot;</span><br><span class="line">git push --tag</span><br><span class="line"></span><br><span class="line"># git 显示中文</span><br><span class="line">git config --global core.quotepath false</span><br><span class="line"></span><br><span class="line"># Item2 lszrz</span><br><span class="line">服务端 安装 apt-get install lszrz</span><br><span class="line">客户端 安装 Item2 expect</span><br><span class="line"># gos 命令</span><br><span class="line">export LC_CTYPE=en_US</span><br><span class="line">expect /Users/yudafu/500/tool/$1</span><br><span class="line"># expect 文件</span><br><span class="line">spawn ssh root@XX.XXX -p 50022</span><br><span class="line">expect &quot;*password*&quot;</span><br><span class="line">send &quot;password\n&quot;</span><br><span class="line">expect &quot;*root*&quot;</span><br><span class="line">send &quot;ssh root@XXXXX -p 52222\n&quot;</span><br><span class="line">expect &quot;*password*&quot;</span><br><span class="line">send &quot;cd www/web\n&quot;</span><br><span class="line">interact</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/09/04/command/" data-id="ck04wpwj40003bp3l8xv2otnv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/30/cors/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cors</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/环境配置/" style="font-size: 15px;">环境配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/04/command/">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/cors/">cors</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/ssr/">ssr</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/mysql/">mysql</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/pm2/">pm2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Richole<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>前端性能优化 | Richole&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端性能优化 1.javascript性能优化  重复渲染    大数据计算    计算前置、数据缓存    算法优化    内存泄漏    代码优化   2.构建优化  单页OR多页应用    懒加载及加载前置    缩略图    服务端渲染    预渲染   3.网络优化  HTTP2    缓存    负载均衡    DNS优化   4.静态资源优化  资源压缩    请求合并    缩略图">
+<meta name="keywords" content="性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端性能优化">
+<meta property="og:url" content="http://monkit.com/2019/08/30/performance/index.html">
+<meta property="og:site_name" content="Richole&#39;s blog">
+<meta property="og:description" content="前端性能优化 1.javascript性能优化  重复渲染    大数据计算    计算前置、数据缓存    算法优化    内存泄漏    代码优化   2.构建优化  单页OR多页应用    懒加载及加载前置    缩略图    服务端渲染    预渲染   3.网络优化  HTTP2    缓存    负载均衡    DNS优化   4.静态资源优化  资源压缩    请求合并    缩略图">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-30T03:59:48.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端性能优化">
+<meta name="twitter:description" content="前端性能优化 1.javascript性能优化  重复渲染    大数据计算    计算前置、数据缓存    算法优化    内存泄漏    代码优化   2.构建优化  单页OR多页应用    懒加载及加载前置    缩略图    服务端渲染    预渲染   3.网络优化  HTTP2    缓存    负载均衡    DNS优化   4.静态资源优化  资源压缩    请求合并    缩略图">
+  
+    <link rel="alternate" href="/atom.xml" title="Richole&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Richole&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://monkit.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-performance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/30/performance/" class="article-date">
+  <time datetime="2019-08-30T02:33:21.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端性能优化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h1><ul>
+<li><a href="#根据文件内标题生成目录">1.javascript性能优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">重复渲染</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">大数据计算</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">计算前置、数据缓存</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">算法优化</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">内存泄漏</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">代码优化</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">2.构建优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">单页OR多页应用</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">懒加载及加载前置</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">缩略图</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">服务端渲染</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">预渲染</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">3.网络优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">HTTP2</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">缓存</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">负载均衡</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">DNS优化</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">4.静态资源优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">资源压缩</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">请求合并</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">缩略图</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">5.交付优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">加载关键CSS</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">Loading</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">用户定制-根据型号分辨率 定制内容</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">预加载</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">6.环境优化</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">M站</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">搭建多站点</a></li>
+</ul>
+</li>
+<li><a href="#根据文件内标题生成目录">7.Chrome devtools真的会用吗</a></li>
+<li><a href="#根据文件内标题生成目录">8.树立优化的意识</a></li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">培养同事的优化意识</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">比竞争对手要快</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">收集数据</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#根据文件内标题生成目录">优化用户体验</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://monkit.com/2019/08/30/performance/" data-id="ck04wpwjm000nbp3lh35huh26" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/30/koa/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          koa
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/04/vscode/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">VS Code 配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/环境配置/" style="font-size: 15px;">环境配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/04/command/">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/cors/">cors</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/ssr/">ssr</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/mysql/">mysql</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/30/pm2/">pm2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Richole<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
