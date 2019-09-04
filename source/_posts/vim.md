@@ -1,5 +1,5 @@
 ---
-title: vim
+title: Vim 配置
 date: 2017-12-11 00:40:31
 tags: Linux
 ---

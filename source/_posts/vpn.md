@@ -1,7 +1,7 @@
 ---
-title: vpn
+title: VPN 搭建
 date: 2019-03-21 12:02:26
-tags: Linux
+tags: 环境配置
 ---
 # Strongswan
 ```

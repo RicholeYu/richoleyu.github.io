@@ -1,7 +1,7 @@
 ---
-title: Vscode 配置
+title: VS Code 配置
 date: 2019-04-04 17:26:16
-tags:
+tags: 环境配置
 ---
 错误：无法提交处理 (无效或已损坏的软件包 (PGP 签名))
 修改/etc/pacman.conf

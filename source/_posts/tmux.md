@@ -1,5 +1,5 @@
 ---
-title: tmux
+title: Tmux
 date: 2017-12-04 23:17:17
 tags: Linux
 ---
