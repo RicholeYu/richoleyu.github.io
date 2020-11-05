@@ -5,10 +5,18 @@ tags: 环境配置
 ---
 # Strongswan
 ```
+修改apt源增加以下几列
+/etc/apt/sources.list
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+apt-get update
 apt-get install strongswan
 apt-get install strongswan-plugin-xauth-noauth
 
-iptables -t nat -A POSTROUTING -s 10.146.0.0/24 -o ens4 -j MASQUERADE
+增加转发规则 内网ip端
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
 iptables -L -t nat
 
 echo 1 >> /proc/sys/net/ipv4/ip_forward
@@ -18,7 +26,7 @@ net.ipv6.conf.all.forwarding=1
 net.ipv4.conf.all.accept_redirects = 0
 net.ipv4.conf.all.send_redirects = 0
 sysctl -p
-ifconfig ens4 mtu 1500 up
+ifconfig eth0 mtu 1500 up
 
 vim /etc/ipsec.secrets
 : PSK "123"
@@ -38,7 +46,7 @@ conn ios_android
     rightauth=psk
     rightauth2=xauth
     rightdns=8.8.8.8,8.8.4.4
-    rightsourceip=10.146.0.4/20
+    rightsourceip=10.0.0.4/20
     auto=add
 
 # 防火墙开放500 4500 端口
