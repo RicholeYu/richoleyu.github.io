@@ -1,0 +1,38 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  animation: box 4s infinite ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+}
+
+
+@keyframes box {
+  0% {
+    border-radius: 0;
+    background: cornflowerblue;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 50%;
+    background: hotpink;
+    transform: rotate(360deg) scale(1.5);
+  }
+  100% {
+    border-radius: 0;
+    background: cornflowerblue;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
