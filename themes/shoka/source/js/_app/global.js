@@ -129,6 +129,8 @@ const themeColorListener = function () {
 
 const visibilityListener = function () {
   document.addEventListener('visibilitychange', function() {
+    // 关闭切换屏幕
+    return 
     switch(document.visibilityState) {
       case 'hidden':
         $('[rel="icon"]').attr('href', statics + CONFIG.favicon.hidden);

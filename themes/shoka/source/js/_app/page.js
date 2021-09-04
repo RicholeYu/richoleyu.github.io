@@ -139,6 +139,8 @@ const postBeauty = function () {
   postFancybox('.post.block');
 
   $('.post.block').oncopy = function(event) {
+    // 允许复制
+    return
     showtip(LOCAL.copyright)
 
     var copyright = $('#copyright')
