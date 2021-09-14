@@ -64,5 +64,5 @@ apt-get install autossh
 # A机器执行
 autossh -M 2223 -fCNR 2222:localhost:22 root@richole.cn
 # B机器执行
-autossh -M 2223 -fCNL *:2222:nuc.com:2222 root@localhost
+autossh -fCNL *:2222:nuc.com:2222 root@localhost
 ```
