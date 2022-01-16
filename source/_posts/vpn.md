@@ -41,7 +41,54 @@ conn ios_android
     rightsourceip=10.146.0.4/20
     auto=add
 
+config setup
+    cachecrls=yes
+    uniqueids=never #一个账号多台设备登陆
+conn ios_android
+    keyexchange=ikev1
+    ike = aes256-sha256-modp1024,3des-sha1-modp1024,aes256-sha1-modp1024!
+    esp = aes256-sha256,3des-sha1,aes256-sha1!
+    left=%defaultroute
+    fragmentation=yes
+    leftauth=psk
+    leftsubnet=0.0.0.0/0
+    right=%any
+    rightauth=psk
+    rightauth2=xauth
+    rightdns=8.8.8.8,8.8.4.4
+    rightsourceip=10.11.1.0/24
+    reauth=yes
+    auto=add
 # 防火墙开放500 4500 端口
+```
+
+# Strongswan 客户端
+```
+config setup
+
+conn toserver
+  keyexchange=ikev1
+  left=%any
+  leftid=yu
+  leftsourceip=%config
+  leftauth=psk
+  leftauth2=xauth
+  leftfirewall=yes
+  right=104.243.31.52
+  rightid=104.243.31.52
+  rightauth=psk
+  rightauth2=xauth
+  rightsubnet=0.0.0.0/0
+  xauth_identity=yu
+  auto=start
+  type=tunnel
+  ike = aes256-sha256-modp1024,3des-sha1-modp1024,aes256-sha1-modp1024!
+  esp = aes256-sha256,3des-sha1,aes256-sha1!
+  margintime=1m
+  rekeyfuzz=100%
+  rekey=yes
+  closeaction=restart
+  keyingtries=%forever
 ```
 
 # Shadwosock
@@ -57,4 +104,51 @@ touch shadow.json
 "method":"aes-128-cfb"
 }
 ssserver -c shadow.json -d start
+```
+
+# dante
+```bash
+apt-get install dante
+vim /etc/dante.conf
+
+logoutput: stderr
+internal: eth0 port = 1080
+external: eth0
+# 验证账户：username 不验证账户：none
+method: none
+user.privileged: root
+user.notprivileged: nobody
+user.libwrap: nobody
+compatibility: sameport
+compatibility: reuseaddr
+extension: bind
+
+client pass {
+  from: 0.0.0.0/0 to: 0.0.0.0/0
+  log: connect disconnect error
+}
+
+pass {
+  from: 0.0.0.0/0 to: 0.0.0.0/0
+  command: bind
+  log: connect disconnect error
+}
+
+pass {
+  from: 0.0.0.0/0 to: 0.0.0.0/0
+  command: bindreply udpreply
+  log: connect error
+}
+
+pass {
+  from: 0.0.0.0/0 to: 0.0.0.0/0 port 1-65535
+  protocol: tcp udp
+}
+
+pass {
+  from: 0.0.0.0/0 to: 0.0.0.0/0 port 1-65535
+  command: udpassociate
+}
+
+/etc/init.d/dante restart/start/stop
 ```

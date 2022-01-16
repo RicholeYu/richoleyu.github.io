@@ -5,17 +5,26 @@ tags: Linux
 ---
 
 ````
-#置配置文件到/root/.vim/.vimrc 解决中文乱码 或 /etc/vim/.vimrc
+# .vimrc配置文件
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
-
-
-#解决复制粘贴造成的格式混乱
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {<CR>}<ESC>O<TAB>
+inoremap < <><ESC>i
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+set number
+set wildmenu
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set hlsearch
+set incsearch
+# 解决复制粘贴造成的格式混乱
 :set paste
-
-#显示文件行号
-:set nu
+# 显示文件行号
 
 h或退格: 左移一个字符
 l或空格: 右移一个字符
@@ -77,6 +86,7 @@ H: 把光标移到屏幕最顶端一行
 M: 把光标移到屏幕中间一行
 L: 把光标移到屏幕最底端一行
 gg: 到文件头部
+gi: 回到上次编辑的地方
 G: 到文件尾部
 
 ma: 在当前位置设置标记a
