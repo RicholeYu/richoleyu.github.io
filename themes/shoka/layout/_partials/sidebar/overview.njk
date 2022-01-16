@@ -42,6 +42,11 @@
   {%- endfor %}
 </div>
 
+<div class="relate">
+  <p>最近更新于</p>
+  <p>{{ current_update_time() }}</p>
+</div>
+
 <ul class="menu">
   {{ partial('_partials/sidebar/menu.njk', {}, {cache: true}) }}
 </ul>

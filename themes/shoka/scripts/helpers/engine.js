@@ -161,3 +161,18 @@ hexo.extend.helper.register('language_name', function(language) {
   const name = hexo.theme.i18n.__(language)('name');
   return name === 'name' ? language : name;
 });
+
+/**
+ * 获取最近更新时间
+ */
+hexo.extend.helper.register('current_update_time', function() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear()
+  const month = `0${currentDate.getMonth() + 1}`.slice(-2)
+  const day = `0${currentDate.getDate()}`.slice(-2)
+  const hour = `0${currentDate.getHours()}`.slice(-2)
+  const min = `0${currentDate.getMinutes()}`.slice(-2)
+
+  return `${year}-${month}-${day} ${hour}:${min}`
+});
+
