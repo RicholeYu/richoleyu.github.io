@@ -8,7 +8,7 @@
     "deploy": "hexo deploy",
     "server": "hexo server",
     "push": "bash update.sh",
-    "pub": "scp -r public/* root@richole.cn:/root/docker/nginx/html"
+    "pub": "hexo g && scp -r public/* root@richole.cn:/root/docker/nginx/html"
   },
   "hexo": {
     "version": "5.4.0"
