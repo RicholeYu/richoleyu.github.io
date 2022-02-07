@@ -10,7 +10,7 @@ ssh-copy-id root@104.243.31.52
 #### kill掉所有autossh任务
 ps -ef | grep ssh
 #### ssh
-autossh -M 2223 -fCNR 2222:localhost:2222 root@104.243.31.52
+autossh -M 2223 -fCNR 2222:localhost:22 root@104.243.31.52
 #### mysql
 autossh -M 3307 -fCNR 3306:localhost:3306 root@104.243.31.52
 #### redis

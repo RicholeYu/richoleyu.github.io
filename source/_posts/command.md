@@ -4,9 +4,6 @@ date: 2019-09-04 14:38:38
 tags: Linux
 ---
 ```
-# 创建 ssh key
-ssh-keygen -t rsa -C “dfyu@xtremeprog.com”
-
 # nvm 安装
 git clone https://github.com/creationix/nvm.git /usr/local/bin/nvm
 
@@ -25,22 +22,6 @@ git push --tag
 
 # git 显示中文
 git config --global core.quotepath false
-
-# Item2 lszrz
-服务端 安装 apt-get install lszrz
-客户端 安装 Item2 expect
-# gos 命令
-export LC_CTYPE=en_US
-expect /Users/yudafu/500/tool/$1
-# expect 文件
-spawn ssh root@XX.XXX -p 50022
-expect "*password*"
-send "password\n"
-expect "*root*"
-send "ssh root@XXXXX -p 52222\n"
-expect "*password*"
-send "cd www/web\n"
-interact
 
 # ab 压力测试 n 请求数 c 并发数 -p post数据文件
 ab -n 400 -c 20 -T "application/json" -p test.json "http://localhost:8080"；
