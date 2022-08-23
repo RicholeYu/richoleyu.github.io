@@ -1,7 +1,8 @@
 FROM node AS builder
 COPY ./ /blog
 WORKDIR /blog
-RUN npm install
+RUN npm i npm -g
+RUN npm i
 RUN npm run build
 
 FROM nginx
