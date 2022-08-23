@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  nginx:
+    restart: "always"
+    network_mode: "bridge"
+    container_name: nginx
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"

@@ -58,7 +58,7 @@ conn ios_android
     rightdns=8.8.8.8,8.8.4.4
     rightsourceip=10.11.1.0/24
     reauth=yes
-    auto=add
+    auto=start
 # 防火墙开放500 4500 端口
 ```
 
@@ -74,14 +74,14 @@ conn toserver
   leftauth=psk
   leftauth2=xauth
   leftfirewall=yes
+  leftsubnet=192.168.10.100/27
   right=104.243.31.52
   rightid=104.243.31.52
   rightauth=psk
   rightauth2=xauth
-  rightsubnet=0.0.0.0/0
+  rightsubnet=10.11.1.0/24
   xauth_identity=yu
   auto=start
-  type=tunnel
   ike = aes256-sha256-modp1024,3des-sha1-modp1024,aes256-sha1-modp1024!
   esp = aes256-sha256,3des-sha1,aes256-sha1!
   margintime=1m
@@ -91,7 +91,7 @@ conn toserver
   keyingtries=%forever
 ```
 
-# Shadwosock
+# Shadowsock
 ```
 sudo apt-get install python-gevent python-pip
 sudo pip install shadowsocks
