@@ -73,9 +73,9 @@ conn toserver
   rekey=yes
   closeaction=restart
   keyingtries=%forever
-```
 
 docker run -d -p 500:500/udp -p 4500:4500/udp -p 1701:1701/udp -v /etc/ipsec.secrets:/etc/ipsec.secrets -v /etc/ipsec.conf:/etc/ipsec.conf -e VPN_USER=yu -e VPN_PASSWORD=yu -e VPN_PSK=123  --privileged philplckthun/strongswan
+```
 
 # Shadowsock
 ```
