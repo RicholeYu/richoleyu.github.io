@@ -4,5 +4,6 @@ services:
   nginx:
     restart: "always"
     network_mode: "host"
+    image: richole/nginx
     container_name: nginx
     build: .
