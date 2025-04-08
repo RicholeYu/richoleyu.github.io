@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  nginx:
+    restart: "always"
+    image: richole/nginx
+    container_name: nginx
+    ports:
+      - "10008:80"
+    build: .
